@@ -11,7 +11,8 @@ def __init__(self, caracter: str, posicion: int):
     self.estado: str = "oculta"
 def marcar_letra(self,estado:str)->None:
     self.estado = estado
-
+def __repr__(self):
+    return f"Letra(self.Letra={self.caracter}, pos={self.posicion}, estado={self.estado})"
 class Cancion:
     pass
 
