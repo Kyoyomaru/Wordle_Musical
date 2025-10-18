@@ -1,7 +1,7 @@
 # importar la libreria pydub --> Poner en la terminal: pip install pydub
 
-from pydub import AudioSegment
-from pydub.playback import play
+#from pydub import AudioSegment
+#from pydub.playback import play
 
 
 class Letra:
@@ -11,9 +11,9 @@ class Letra:
     def marcar_posicion_correcta(self):
         self.estado= "posicion correcta"
     def marcar_posicion_incorrecta(self):
-        self.estado= "Posicion Incorrecta"
+        self.estado= "posicion Incorrecta"
     def marcar_no_palabra(self):
-        self.estado= "No en la palabra"
+        self.estado= "no en la palabra"
 
 
 
@@ -27,6 +27,16 @@ class Letra:
 
         else:
             return"{self.caracter}"
+    def comparar_palabras(self,palabra_objetivo:str,intento:str):
+        palabra_objetivo=palabra_objetivo.upper()
+        intento=intento.upper()
+        letras=[Letra(c) for c in intento]
+        for i, letra in enumerate(letras):
+            if letra.caracter == palabra_objetivo[i]:
+                pass
+
+        letra.marcar_posicion_correcta()
+
 
 
 
