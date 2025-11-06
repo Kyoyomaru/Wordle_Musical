@@ -108,7 +108,7 @@ class WordleMusicalGUI:
                 canciones.append(Cancion(titulo, ruta))
                 print(f"✅ Cargada: {titulo}")
             except Exception as e:
-                print(f"⚠️ Error cargando {archivo}: {e}")
+                print(f"Error cargando {archivo}: {e}")
 
         if not canciones:
             messagebox.showerror("Error", "No se pudo cargar ninguna canción válida.")
@@ -117,3 +117,4 @@ class WordleMusicalGUI:
 
         print(f"\n🎵 Total de canciones cargadas: {len(canciones)}")
         return canciones
+
