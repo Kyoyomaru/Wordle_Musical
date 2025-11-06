@@ -105,6 +105,13 @@ class Jugador:
         for c in normalizar_texto(intento):
             self.letras_usadas.add(c)
 
+    def restar_intento(self):
+        self.intentos_restantes -= 1
+
+    def reiniciar_intentos(self):
+        self.intentos_restantes = 6
+        self.letras_usadas.clear()
+
 class WordleMusical:
     def __init__(self,jugador: Jugador,canciones:list):
         self.jugador = jugador
