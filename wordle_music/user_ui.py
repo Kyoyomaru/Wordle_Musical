@@ -86,6 +86,7 @@
         if len(actual) < len(self.juego.cancion_actual.titulo_original):
             self.intento_actual.set(actual + letra)
 
+
     def reproducir_pista(self):
         if self.juego and self.juego.cancion_actual:
             duracion = self.juego.obtener_duracion_fragmento()
