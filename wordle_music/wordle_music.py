@@ -37,12 +37,12 @@ class Cancion:
     def comparar_letras(self, palabra: str):
         palabra = normalizar_texto(palabra)
         resultado = []
-        for i, c in enumerate(palabra):
-            letra = Letra(c, i)
+        for i, caracter in enumerate(palabra):
+            letra = Letra(caracter, i)
             if i < len(self.titulo_original):
-                if c == self.titulo_original[i]:
+                if caracter == self.titulo_original[i]:
                     letra.estado = "correcta"
-                elif c in self.titulo_original:
+                elif caracter in self.titulo_original:
                     letra.estado = "contenida"
             resultado.append(letra)
         return resultado
