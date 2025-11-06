@@ -74,3 +74,46 @@ class WordleMusicalGUI:
         self.crear_tablero()
 
         self.root.after(500, self.reproducir_pista)
+
+    def cargar_canciones(self):
+        """Valida carpeta y archivos antes de cargar."""
+        carpeta = "audios"
+
+        if not os.path.exists(carpeta):
+            messagebox.showerror(
+                "Error",
+                f"No se encontró la carpeta '{carpeta}'.\n\n"
+                "Crea la carpeta 'audios' en el mismo directorio\n"
+                "y añade archivos MP3 de tus canciones favoritas."
+            )
+            self.root.destroy()
+            return []
+
+        canciones = []
+        archivos_mp3 = [f for f in os.listdir(carpeta) if f.endswith(".mp3")]
+
+        if not archivos_mp3:
+            messagebox.showerror(
+                "Error",
+                f"No hay canciones MP3 en la carpeta '{carpeta}'.\n\n"
+                "Añade archivos .mp3 para jugar."
+            )
+            self.root.destroy()
+            return []
+
+        for archivo in archivos_mp3:
+            titulo = os.path.splitext(archivo)[0]
+            ruta = os.path.join(carpeta, archivo)
+            try:
+                canciones.append(Cancion(titulo, ruta))
+                print(f"✅ Cargada: {titulo}")
+            except Exception as e:
+                print(f"⚠️ Error cargando {archivo}: {e}")
+
+        if not canciones:
+            messagebox.showerror("Error", "No se pudo cargar ninguna canción válida.")
+            self.root.destroy()
+            return []
+
+        print(f"\n🎵 Total de canciones cargadas: {len(canciones)}")
+        return canciones
