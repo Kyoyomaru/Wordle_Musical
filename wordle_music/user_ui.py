@@ -133,10 +133,8 @@
                 elif letra.estado == "incorrecta" and color_actual not in ("#00ff66", "#ffd700"):
                     boton.config(bg="#555555", fg="white")
         correcto = self.juego.validar_intento(intento)
-
         if self.label_intentos:
             self.label_intentos.config(text=f"❤️ Intentos: {self.juego.jugador.intentos_restantes}/6")
-
         self.root.update_idletasks()
 
         if correcto:
