@@ -97,7 +97,6 @@
     def enviar_intento(self):
         intento = self.intento_actual.get().strip().upper()
         self.intento_actual.set("")
-
         if not intento:
             messagebox.showwarning("Aviso", "Escribe una respuesta antes de enviar.")
             return
