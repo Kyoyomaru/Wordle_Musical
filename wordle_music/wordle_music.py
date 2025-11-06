@@ -30,6 +30,7 @@ class WordleMusical:
         else:
                 self.jugador.restar_intento()
                 return False
-
+    def juego_terminado(self):
+        return self.jugador.intentos_restantes <= 0
 
 
