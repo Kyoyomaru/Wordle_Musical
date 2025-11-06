@@ -2,17 +2,13 @@
       def crear_tablero(self):
         for widget in self.root.winfo_children():
             widget.destroy()
-
-        # Encabezado
         frame_header = tk.Frame(self.root, bg="#1e1e1e")
         frame_header.pack(pady=10)
-
         tk.Label(
             frame_header, text=f"🎮 Jugador: {self.juego.jugador.nombre}",
             bg="#1e1e1e", fg="#00ffb3", font=("Arial", 14, "bold")
         ).pack(side="left", padx=20)
 
-        # Contador de intentos
         self.label_intentos = tk.Label(
             frame_header, text=f"❤️ Intentos: {self.juego.jugador.intentos_restantes}/6",
             bg="#1e1e1e", fg="white", font=("Arial", 12, "bold")
