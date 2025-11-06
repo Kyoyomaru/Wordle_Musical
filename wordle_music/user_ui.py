@@ -122,7 +122,9 @@
                 cuadro.config(bg="#ffd700", fg="black")
             else:
                 cuadro.config(bg="#555555", fg="white")
+
         for letra in resultado:
+
             boton = self.botones_teclas.get(letra.caracter)
             if boton:
                 color_actual = boton.cget("bg")
