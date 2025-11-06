@@ -4,6 +4,19 @@ import unicodedata
 from pydub import AudioSegment
 from io import BytesIO
 
+pygame.mixer.init(frequency=44100, size=-16, channels=2, buffer=512)
+
+def normalizar_texto(texto):
+    """Elimina espacios, acentos y caracteres especiales."""
+    texto = texto.upper().replace(" ", "")
+    # Eliminar acentos
+    texto = ''.join(
+        c for c in unicodedata.normalize('NFD', texto)
+        if unicodedata.category(c) != 'Mn'
+    )
+    # Mantener solo letras y números
+    texto = ''.join(c for c in texto if c.isalnum())
+    return texto
 
 class WordleMusical:
     def __init__(self,jugador: Jugador,canciones:list):
