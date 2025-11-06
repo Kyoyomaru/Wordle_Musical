@@ -17,7 +17,14 @@ def normalizar_texto(texto):
     # Mantener solo letras y números
     texto = ''.join(c for c in texto if c.isalnum())
     return texto
+class Letra:
+    def __init__(self, caracter: str, posicion: int):
+        self.caracter = caracter.upper()
+        self.posicion = posicion
+        self.estado = "incorrecta"
 
+    def __repr__(self):
+        return f"{self.caracter}({self.estado})"
 class WordleMusical:
     def __init__(self,jugador: Jugador,canciones:list):
         self.jugador = jugador
