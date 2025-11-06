@@ -7,16 +7,14 @@ from io import BytesIO
 pygame.mixer.init(frequency=44100, size=-16, channels=2, buffer=512)
 
 def normalizar_texto(texto):
-    """Elimina espacios, acentos y caracteres especiales."""
     texto = texto.upper().replace(" ", "")
-    # Eliminar acentos
     texto = ''.join(
         c for c in unicodedata.normalize('NFD', texto)
         if unicodedata.category(c) != 'Mn'
     )
-    # Mantener solo letras y números
     texto = ''.join(c for c in texto if c.isalnum())
     return texto
+
 class Letra:
     def __init__(self, caracter: str, posicion: int):
         self.caracter = caracter.upper()
@@ -25,6 +23,7 @@ class Letra:
 
     def __repr__(self):
         return f"{self.caracter}({self.estado})"
+
 class WordleMusical:
     def __init__(self,jugador: Jugador,canciones:list):
         self.jugador = jugador
