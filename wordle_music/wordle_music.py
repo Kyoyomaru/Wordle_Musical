@@ -96,7 +96,14 @@ class Cancion:
         return pygame.mixer.music.get_busy()
 
 class Jugador:
-    pass
+    def __init__(self, nombre: str):
+        self.nombre = nombre
+        self.intentos_restantes = 6
+        self.letras_usadas = set()
+
+    def registrar_letras(self, intento: str):
+        for c in normalizar_texto(intento):
+            self.letras_usadas.add(c)
 
 class WordleMusical:
     def __init__(self,jugador: Jugador,canciones:list):
