@@ -32,5 +32,11 @@ class WordleMusical:
                 return False
     def juego_terminado(self):
         return self.jugador.intentos_restantes <= 0
+    def reiniciar(self):
+        if self.cancion_actual:
+            self.cancion_actual.detener_reproduccion()
+        self.tablero = []
+        self.jugador.reiniciar_intentos()
+        self.seleccionar_cancion()
 
 
